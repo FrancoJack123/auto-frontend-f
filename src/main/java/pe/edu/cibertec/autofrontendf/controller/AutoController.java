@@ -30,10 +30,10 @@ public class AutoController {
     public String postBuscarAuto(
             @RequestParam("placa") String placa,
             Model model) {
-        if (placa == null || placa.trim().isEmpty()) {
+        if (placa == null || placa.trim().isEmpty() || placa.length() != 7) {
             AutoModel autoModel = new AutoModel(
                     "01",
-                    "Debe ingresar una placa.",
+                    "Debe ingresar una placa correcta.",
                     "", "", "", "", "");
             model.addAttribute("autoModel", autoModel);
             return "auto/buscarAuto";
